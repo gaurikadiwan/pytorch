@@ -1,9 +1,14 @@
 #!/bin/bash
-#SBATCH --job-name=test
-#SBATCH --nodes=1
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=16
-#SBATCH
---mem=32G
-#SBATCH --partition=gpu
+#SBATCH --job-name=gaurika_CIFAR
+#SBATCH --mail-type=All
+#SBATCH --mail-user=g.diwan@uqconnect.edu.au
+#SBATCH --partition=vgpu
 #SBATCH --gres=gpu:1
+#SBATCH -o test_ou.txt
+#SBATCH -e test_er.txt
+
+conda activate conda /home/Student/s4824098/miniconda3
+
+python ~/test.py
+
+conda deactivate
